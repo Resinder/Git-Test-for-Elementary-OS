@@ -12,7 +12,7 @@ wget -q --spider https://www.google.com
 if [ "$?" -eq 0 ]; then
 echo -e "$ylo" "          INSTALLING METASPLOIT...."
 else
-echo -e "$red" "     PLEASE TRUN ON YOUR INTERNET..."
+echo -e "$red" "     PLEASE TURN ON YOUR INTERNET..."
 exit
 fi
 
