@@ -4,7 +4,9 @@ red='\033[1;31m'
 rset='\033[0m'
 grn='\033[1;32m'
 ylo='\033[1;33m'
+
 #script coding starts
+
 ## checking Internet is on
 clear
 wget -q --spider https://www.google.com
@@ -14,6 +16,7 @@ else
 echo -e "$red" "     PLEASE TRUN ON YOUR INTERNET..."
 exit
 fi
+
 echo '
            ╭━╮╭━╮╱╱╭╮╱╱╱╱╱╱╱╱╱╭╮╱╱╱╱╭╮
            ┃┃╰╯┃┃╱╭╯╰╮╱╱╱╱╱╱╱╱┃┃╱╱╱╭╯╰╮
@@ -24,28 +27,31 @@ echo '
            ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱┃┃Resinder
            ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰╯version 2.1
 '
+
 sleep 6.0
 rm -rf metasploit.sh
-wget https://github.com/Hax4us/TermuxBlack/raw/master/install.sh
-bash install.sh -i
+
+# TermuxBlack theme installation (Optional)
+#wget https://github.com/Hax4us/TermuxBlack/raw/master/install.sh
+#bash install.sh -i
+
 # Remove  Old Folder if exist 
 find $HOME -name "metasploit-*" -type d -exec rm -rf {} \;
-
-
 cwd=$(pwd)
 msfvar=6.0.33
 msfpath='/data/data/com.termux/files/home'
-
 apt update && apt upgrade
+
 # Temporary 
 apt remove ruby -y
 apt install -y libiconv zlib autoconf bison clang coreutils curl findutils git apr apr-util libffi libgmp libpcap postgresql readline libsqlite openssl libtool libxml2 libxslt ncurses pkg-config wget make ruby2 libgrpc termux-tools ncurses-utils ncurses unzip zip tar termux-elf-cleaner
+
 # Many phones are claiming libxml2 not found error
 ln -sf $PREFIX/include/libxml2/libxml $PREFIX/include/
 
+# Download and extract metasploit-framework 
 cd $msfpath
 curl -LO https://github.com/rapid7/metasploit-framework/archive/$msfvar.tar.gz
-
 tar -xf $msfpath/$msfvar.tar.gz
 mv $msfpath/metasploit-framework-$msfvar $msfpath/metasploit-framework
 cd $msfpath/metasploit-framework
@@ -74,7 +80,7 @@ find "$PREFIX"/lib/ruby/gems -type f -iname \*.so -print0 | xargs -0 -r termux-e
 echo "Creating database"
 
 mkdir -p $msfpath/metasploit-framework/config && cd $msfpath/metasploit-framework/config
-curl -LO https://raw.githubusercontent.com/evildevill/tmetasploit/main/database.yml
+curl -LO https://raw.githubusercontent.com/resinder/test/master/database.yml
 
 mkdir -p $PREFIX/var/lib/postgresql
 pg_ctl -D "$PREFIX"/var/lib/postgresql stop > /dev/null 2>&1 || true
@@ -92,8 +98,8 @@ fi
 
 rm $msfpath/$msfvar.tar.gz
 
-cd ${PREFIX}/bin && curl -LO  https://raw.githubusercontent.com/evildevill/evildevillpatch/main/files/msfconsole && chmod +x msfconsole
+cd ${PREFIX}/bin && curl -LO  https://raw.githubusercontent.com/resinder/test/main/msfconsole && chmod +x msfconsole
 
 ln -sf $(which msfconsole) $PREFIX/bin/msfvenom
 
-echo "you can directly use msfvenom or msfconsole rather than ./msfvenom or ./msfconsole."
+echo "You can directly use msfvenom or msfconsole rather than ./msfvenom or ./msfconsole."
