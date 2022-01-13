@@ -1,4 +1,5 @@
-This is not a README
+Installation
+============
 
-I have added this line.
-
+pkg update -y
+pkg install wget-y
