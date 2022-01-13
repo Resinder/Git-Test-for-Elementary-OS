@@ -1,12 +1,12 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-#colour section
+#Colour section
 red='\033[1;31m'
 rset='\033[0m'
 grn='\033[1;32m'
 ylo='\033[1;33m'
 
-## checking Internet is on
+## Checking internet status
 clear
 wget -q --spider https://www.google.com
 if [ "$?" -eq 0 ]; then
@@ -34,7 +34,7 @@ rm -rf metasploit.sh
 #wget https://github.com/Hax4us/TermuxBlack/raw/master/install.sh
 #bash install.sh -i
 
-# Remove  Old Folder if exist 
+# Remove old folder if exist 
 find $HOME -name "metasploit-*" -type d -exec rm -rf {} \;
 cwd=$(pwd)
 msfvar=6.0.33
