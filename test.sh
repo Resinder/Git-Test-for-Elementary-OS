@@ -97,7 +97,7 @@ fi
 
 rm $msfpath/$msfvar.tar.gz
 
-cd ${PREFIX}/bin && curl -LO  https://raw.githubusercontent.com/resinder/test/main/msfconsole && chmod +x msfconsole
+cd ${PREFIX}/bin && curl -LO  https://raw.githubusercontent.com/resinder/test/master/msfconsole && chmod +x msfconsole
 
 ln -sf $(which msfconsole) $PREFIX/bin/msfvenom
 
