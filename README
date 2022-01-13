@@ -2,7 +2,7 @@ Installation
 ============
 
 pkg update -y
-pkg install wget-y
+pkg install wget -y
 
 wget https://github.com/Resinder/test/blob/master/test.sh
 
