@@ -3,15 +3,10 @@
 This tool is used to install metasploit framework in termux
 
 
-* [+] Updated maintainence !
-* [+] tor usage !
-* [+] Easy for Beginners !
-
 ## INSTALLATION [Termux] :
 
-*`pkg update -y`
-*`pkg install wget -y`
+pkg update -y
+pkg install wget -y
 
-*`wget https://raw.githubusercontent.com/Resinder/test/master/test.sh`
-
-*`bash test.sh`
+wget https://raw.githubusercontent.com/Resinder/test/master/test.sh
+bash test.sh
