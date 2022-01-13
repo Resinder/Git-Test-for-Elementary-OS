@@ -1,11 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/bash
+
 #colour section
 red='\033[1;31m'
 rset='\033[0m'
 grn='\033[1;32m'
 ylo='\033[1;33m'
-
-#script coding starts
 
 ## checking Internet is on
 clear
