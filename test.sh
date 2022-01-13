@@ -37,7 +37,7 @@ rm -rf metasploit.sh
 # Remove old folder if exist 
 find $HOME -name "metasploit-*" -type d -exec rm -rf {} \;
 cwd=$(pwd)
-msfvar=6.0.33
+msfvar=6.1.24
 msfpath='/data/data/com.termux/files/home'
 apt update && apt upgrade
 
