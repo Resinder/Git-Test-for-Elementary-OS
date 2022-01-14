@@ -41,7 +41,7 @@ msfvar=6.1.24
 msfpath='/data/data/com.termux/files/home'
 apt update && apt upgrade
 
-# Temporary 
+# Temporary apps
 apt remove ruby -y
 apt install -y libiconv zlib autoconf bison clang coreutils curl findutils git apr apr-util libffi libgmp libpcap postgresql readline libsqlite openssl libtool libxml2 libxslt ncurses pkg-config wget make ruby2 libgrpc termux-tools ncurses-utils ncurses unzip zip tar termux-elf-cleaner
 
@@ -76,11 +76,10 @@ sed -i "s@/etc/resolv.conf@$PREFIX/etc/resolv.conf@g" $msfpath/metasploit-framew
 find "$msfpath"/metasploit-framework -type f -executable -print0 | xargs -0 -r termux-fix-shebang
 find "$PREFIX"/lib/ruby/gems -type f -iname \*.so -print0 | xargs -0 -r termux-elf-cleaner
 
+# Creating DB for metasploit-framework 
 echo "Creating database"
-
 mkdir -p $msfpath/metasploit-framework/config && cd $msfpath/metasploit-framework/config
 curl -LO https://raw.githubusercontent.com/resinder/test/master/database.yml
-
 mkdir -p $PREFIX/var/lib/postgresql
 pg_ctl -D "$PREFIX"/var/lib/postgresql stop > /dev/null 2>&1 || true
 
