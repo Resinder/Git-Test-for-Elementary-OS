@@ -95,9 +95,7 @@ if [ -z "$(psql -l | grep msf_database)" ]; then
 fi
 
 rm $msfpath/$msfvar.tar.gz
-
 cd ${PREFIX}/bin && curl -LO  https://raw.githubusercontent.com/resinder/test/master/msfconsole && chmod +x msfconsole
-
 ln -sf $(which msfconsole) $PREFIX/bin/msfvenom
 
 echo "You can directly use msfvenom or msfconsole rather than ./msfvenom or ./msfconsole."
